@@ -1,0 +1,105 @@
+{
+ "entries_audited": 1287,
+ "unsound_opus": 133,
+ "unsound_sonnet": 198,
+ "unsound_both": 80,
+ "kappa_sound": 0.4105011933174225,
+ "by_code": {
+  "CIRC": {
+   "name": "Circular",
+   "opus": 42,
+   "sonnet": 77,
+   "both": 38,
+   "kappa": 0.6227221597300338,
+   "severe_both": 0
+  },
+  "SELF": {
+   "name": "Self-definition",
+   "opus": 10,
+   "sonnet": 11,
+   "both": 1,
+   "kappa": 0.08781288469429627,
+   "severe_both": 0
+  },
+  "NONAUTH": {
+   "name": "Nonauthoritative dependence",
+   "opus": 9,
+   "sonnet": 25,
+   "both": 7,
+   "kappa": 0.4056525353283459,
+   "severe_both": 2
+  },
+  "POINTER": {
+   "name": "Pointer-only",
+   "opus": 74,
+   "sonnet": 82,
+   "both": 73,
+   "kappa": 0.9317733624546746,
+   "severe_both": 8
+  },
+  "DANGLING": {
+   "name": "Dangling pointer",
+   "opus": 2,
+   "sonnet": 17,
+   "both": 2,
+   "kappa": 0.2083247898298135,
+   "severe_both": 2
+  },
+  "HOMONYM": {
+   "name": "Homonym entries",
+   "opus": 34,
+   "sonnet": 29,
+   "both": 19,
+   "kappa": 0.5932826859143714,
+   "severe_both": 1
+  },
+  "SCOPECONF": {
+   "name": "Scope conflict",
+   "opus": 9,
+   "sonnet": 7,
+   "both": 1,
+   "kappa": 0.11961301671064206,
+   "severe_both": 0
+  },
+  "STALE": {
+   "name": "Stale or superseded",
+   "opus": 41,
+   "sonnet": 17,
+   "both": 11,
+   "kappa": 0.3674984983345164,
+   "severe_both": 5
+  },
+  "PENDING": {
+   "name": "Embedded transition text",
+   "opus": 15,
+   "sonnet": 20,
+   "both": 15,
+   "kappa": 0.8552143098211272,
+   "severe_both": 0
+  },
+  "UNDEF": {
+   "name": "Undefined dependency",
+   "opus": 25,
+   "sonnet": 16,
+   "both": 1,
+   "kappa": 0.03413704851155541,
+   "severe_both": 0
+  },
+  "INCONS": {
+   "name": "Inconsistent with use",
+   "opus": 48,
+   "sonnet": 11,
+   "both": 0,
+   "kappa": -0.014103129131776138,
+   "severe_both": 0
+  },
+  "MALFORMED": {
+   "name": "Malformed entry",
+   "opus": 60,
+   "sonnet": 36,
+   "both": 17,
+   "kappa": 0.3307669082125604,
+   "severe_both": 1
+  }
+ }
+}

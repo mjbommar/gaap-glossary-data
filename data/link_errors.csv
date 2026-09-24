@@ -1,0 +1,8 @@
+paragraph,term,linked_definition,applicable_definition,why,verification_source
+718-30-35-1,fair value,820-10-20 Fair Value,718-10-20 Fair Value,"Topic 820 does not apply to share-based payment (820-10-15-2(a)); paragraph 718-30-30-2 in the same Subtopic links the 718-10 definition",verified_nonauth_homonym.csv slug fair-value
+842-10-15-3C,direct financing lease,840-10-20 Direct Financing Leases (superseded),842-10-20 Direct Financing Lease,"Linked entry's only text is that it was superseded by ASU 2016-02",verified_nonauth_homonym.csv slug direct-financing-leases
+842-10-25-15,direct financing lease,840-10-20 Direct Financing Leases (superseded),842-10-20 Direct Financing Lease,"Linked entry's only text is that it was superseded by ASU 2016-02",verified_nonauth_homonym.csv slug direct-financing-leases
+842-10-65-1,direct financing lease,840-10-20 Direct Financing Leases (superseded),842-10-20 Direct Financing Lease,"Linked entry's only text is that it was superseded by ASU 2016-02",verified_nonauth_homonym.csv slug direct-financing-leases
+842-20-35-14,direct financing lease,840-10-20 Direct Financing Leases (superseded),842-10-20 Direct Financing Lease,"Linked entry's only text is that it was superseded by ASU 2016-02",verified_nonauth_homonym.csv slug direct-financing-leases
+958-605-15-6,trustee,852-10-20 Trustee (bankruptcy),958-605-20 Trustee,"Other 958-605 paragraphs (05-4, 25-25, 45-10, 50-5, 55-71) link the not-for-profit definition",verified_nonauth_homonym.csv slug trustee
+958-605-15-6,agent,860-10-20 Agent (transfers of financial assets),958-605-20 Agent,"Same paragraph as trustee; the Subtopic otherwise uses the not-for-profit definition",verified_nonauth_homonym.csv slug agent

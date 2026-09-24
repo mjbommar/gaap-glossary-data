@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "FASB Master Glossary audit data"
+authors:
+  - family-names: "Bommarito"
+    given-names: "Michael J."
+    name-suffix: "II"
+license: CC-BY-4.0
+repository-code: "https://github.com/mjbommar/gaap-glossary-data"
+date-released: 2026-09-24
+version: "1.0.0"
+keywords:
+  - accounting standards
+  - FASB
+  - Accounting Standards Codification
+  - Master Glossary
+  - circular definitions
+  - legal drafting
+references:
+  - type: article
+    title: "Circular, Superseded, and Borrowed: An Audit of the Definitions in the FASB Master Glossary"
+    authors:
+      - family-names: "Bommarito"
+        given-names: "Michael J."
+        name-suffix: "II"
+    year: 2026
+    notes: "Working paper"

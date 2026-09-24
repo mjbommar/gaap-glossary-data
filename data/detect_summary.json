@@ -1,0 +1,46 @@
+{
+ "CIRC": {
+  "flags": 92,
+  "entries": 92
+ },
+ "PENDING": {
+  "flags": 26,
+  "entries": 26
+ },
+ "POINTER": {
+  "flags": 68,
+  "entries": 68
+ },
+ "DANGLING": {
+  "flags": 45,
+  "entries": 40
+ },
+ "STALE": {
+  "flags": 7,
+  "entries": 7
+ },
+ "NONAUTH": {
+  "flags": 7,
+  "entries": 7
+ },
+ "SCOPECONF": {
+  "flags": 1,
+  "entries": 1
+ },
+ "HOMONYM": {
+  "flags": 25,
+  "entries": 25
+ },
+ "_graph": {
+  "entries": 1287,
+  "distinct_names": 1274,
+  "edges_multiword": 1294,
+  "cycles_multiword": 36,
+  "terms_in_cycles_multiword": 90,
+  "largest_cycle_multiword": 6,
+  "edges_all": 3822,
+  "cycles_all": 30,
+  "terms_in_cycles_all": 284,
+  "largest_cycle_all": 211
+ }
+}
