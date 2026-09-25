@@ -10,14 +10,21 @@ verification records, and the glossary dependency graph.
 
 ## What is and is not here
 
-The files contain identifiers (glossary slugs and headwords, Codification paragraph citations), defect codes, verdicts
-and the authors' reasons. **They do not contain the text of the Codification.** Columns holding full definitions,
-paragraph excerpts or model-quoted evidence were removed before publication (see `scripts/export_public_data.py`).
-Reasons occasionally quote a short phrase, as the note does, for commentary. The Codification is published by the
-Financial Accounting Foundation, and every claim here can be checked against its public viewer at
-<https://asc.fasb.org/>, which requires accepting the Foundation's terms.
+The files contain identifiers (glossary slugs and headwords, Codification paragraph citations), defect codes, verdicts,
+the authors' reasons, and the glossary citation graph with a short snippet for every link. They do not contain any
+full paragraph or any definition as such. Each snippet is at most six words either side of the linked term, quoted so
+that a reader can see each link and each dependency in context. Because many glossary definitions are short, the
+windows around a short entry's several terms can together cover most of that entry. The Codification is published by
+the Financial Accounting Foundation, which retains all rights in its text. Every claim here can be checked against its
+public viewer at <https://asc.fasb.org/>, which requires accepting the Foundation's terms, and `definitions.csv` gives a
+SHA-256 fingerprint of each linked definition's whitespace-normalized text so a reader can confirm they are reading
+the version audited.
 
 Snapshot: the public viewer as retrieved on September 9–10, 2026.
+
+**Citation keys.** The crawl files an industry Subtopic under the general Topic first (for example `605-958-15-6`).
+`paragraph_links.csv` gives both the crawl key and the standard Codification citation (`958-605-15-6`). Other files
+use the crawl key.
 
 ## Files
 
@@ -28,10 +35,19 @@ Snapshot: the public viewer as retrieved on September 9–10, 2026.
 | `data/verified_nonauth_homonym.csv` | 62 | Verification of entries that rely on nonauthoritative sources (NONAUTH) and of names carrying several definitions (HOMONYM, HOMONYM_HIDDEN), with the subtopics that link each definition. |
 | `data/verified_dangling.csv` | 45 | Verification of every pointer to a paragraph or term that may not exist, with the resolved citation and a verdict (real defect or extraction artifact). |
 | `data/audit_defects.csv` | 532 | Every (entry, defect code) pair flagged by a detector or by either model: which flagged it, tier, severity, and the model's explanation. Screening output, not findings. |
-| `data/glossary_edges_multiword.csv` | 1,294 | The dependency graph: entry `term` uses glossary term `uses_term` in its definition (multiword terms). |
+| `data/paragraph_links.csv` | 8,277 | The citation graph: every glossary link in a Codification paragraph, with the specific definition it targets (`definition_key`, the defining Subtopic and headword) and a snippet with the linked words in brackets. |
+| `data/definitions.csv` | 1,145 | Every distinct definition that some paragraph links, with its defining Subtopic, the number of links to it, and a SHA-256 fingerprint of its text. |
+| `data/definition_edges.csv` | 1,294 | The dependency graph: glossary entry `entry` uses glossary term `uses_term` in its definition, with a snippet showing the words that create the dependency (56 edges have no snippet because the term appears only in a variant form). |
+| `data/glossary_edges_multiword.csv` | 1,294 | The same dependency edges without snippets, as used by the detectors. |
 | `data/audit_stats.json` | | Per-code counts for each model, both models, and Cohen's kappa between them. |
 | `data/detect_summary.json` | | Per-code counts from the deterministic detectors. |
 | `data/TAXONOMY.md` | | Definitions of the defect codes used in every file. |
+
+## Scripts
+
+`scripts/export_public_data.py` produced the audit and verification files from the private audit data, removing
+full-text columns. `scripts/build_link_graph.py` produced the citation-graph files from the private crawl. Both are
+included to document the method; their inputs are not distributed.
 
 ## How to read the counts
 
