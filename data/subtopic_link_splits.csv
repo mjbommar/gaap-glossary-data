@@ -1,0 +1,7 @@
+subtopic,slug,definitions_linked,paragraphs,verdict,reason
+718-30,fair-value,718-10 (718-30-30-2; 718-30-55-2) | 820-10 (718-30-35-1),3,defect,"Topic 820 excludes share-based payment other than 718-40 (820-10-15-2(a)); 718-30-35-1 remeasures share-based liabilities, so the 820-10 link is wrong. In the note."
+958-605,trustee,958-605 (7 paragraphs) | 852-10 (958-605-15-6),8,defect,"958-605-15-6 links the bankruptcy definition while the Subtopic otherwise links its own not-for-profit definition. In the note."
+958-605,agent,958-605 (5 paragraphs) | 860-10 (958-605-15-6),6,defect,"Same paragraph as trustee links the transfers-of-financial-assets definition. In the note."
+718-740,fair-value,718-10 (718-740-05-4; 718-740-30-2) | 820-10 (718-740-25-6; 718-740-45-5),4,not a defect,"The 820-10 links are in employee stock ownership plan paragraphs (shares committed to be released), and Topic 820 does apply to 718-40. The split follows the scope exception."
+740-10,public-entity,280-10 (740-10-50-5) | 740-10 (740-10-50-6),2,not a defect,"740-10-50-5 links public business entity in the pending text added by ASU 2023-09; 740-10-50-6 links public entity in current text. Transition, not error."
+958-605,nonreciprocal-transfer,845-10 (958-605-00-1) | 958-605 (958-605-55-110),2,not a defect,"958-605-00-1 is a status table recording ASU 2016-14, not operative guidance."

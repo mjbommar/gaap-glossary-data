@@ -57,9 +57,9 @@ for cit, h in con.execute("select citation, html from paragraph"):
         before, after = words(h[:m.start()])[-WINDOW:], words(h[m.end():])[:WINDOW]
         anchor = " ".join(words(anchor))
         key = f"{defsub} {cname}"
-        defs.setdefault(key, dict(definition_key=key, defining_subtopic=defsub, slug=slug, sha256=sha(title), links=0))
+        defs.setdefault(key, dict(definition_key=key, id_subtopic=defsub, slug=slug, sha256=sha(title), links=0))
         defs[key]["links"] += 1
-        links.append(dict(paragraph=asc_citation(cit), crawl_key=cit, slug=slug, anchor=anchor, definition_key=key, defining_subtopic=defsub,
+        links.append(dict(paragraph=asc_citation(cit), crawl_key=cit, slug=slug, anchor=anchor, definition_key=key, id_subtopic=defsub,
                           snippet=" ".join(before + [f"[{anchor}]"] + after)))
 L = pd.DataFrame(links).drop_duplicates()
 L.to_csv(OUT / "paragraph_links.csv", index=False)
