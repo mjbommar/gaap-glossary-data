@@ -28,7 +28,8 @@ use the crawl key. On nine viewer pages the crawl recorded no citation, so 72 pa
 Subtopics 944-20, 958-605 and 958-810) carry the viewer's internal page and element ID instead.
 
 **Repeated links.** A paragraph can link the same term to the same definition more than once. `paragraph_links.csv`
-lists each distinct link with its first snippet (8,277 rows); `definitions.csv` counts every occurrence (8,476).
+keeps each occurrence with a distinct snippet and drops exact repeats (8,277 rows, covering 8,070 distinct
+paragraph, term and definition combinations); `definitions.csv` counts every occurrence (8,476).
 
 ## Files
 
