@@ -20,11 +20,15 @@ public viewer at <https://asc.fasb.org/>, which requires accepting the Foundatio
 SHA-256 fingerprint of each linked definition's whitespace-normalized text so a reader can confirm they are reading
 the version audited.
 
-Snapshot: the public viewer as retrieved on September 9–10, 2026.
+Snapshot: the public viewer as retrieved between 22:50 UTC on September 9 and 04:02 UTC on September 10, 2026.
 
 **Citation keys.** The crawl files an industry Subtopic under the general Topic first (for example `605-958-15-6`).
 `paragraph_links.csv` gives both the crawl key and the standard Codification citation (`958-605-15-6`). Other files
-use the crawl key.
+use the crawl key. On nine viewer pages the crawl recorded no citation, so 72 paragraphs (107 links, mostly in
+Subtopics 944-20, 958-605 and 958-810) carry the viewer's internal page and element ID instead.
+
+**Repeated links.** A paragraph can link the same term to the same definition more than once. `paragraph_links.csv`
+lists each distinct link with its first snippet (8,277 rows); `definitions.csv` counts every occurrence (8,476).
 
 ## Files
 
