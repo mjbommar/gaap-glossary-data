@@ -5,7 +5,8 @@
 """Build the glossary citation graph with short snippets from the private crawl of the FASB public viewer.
 
 Outputs (data/):
-  paragraph_links.csv   every glossary link in a Codification paragraph, with the definition it targets
+  paragraph_links.csv   every glossary link occurrence in a Codification paragraph (occurrence = its order among the
+                        paragraph's glossary links), with the definition it targets
   definition_edges.csv  every dependency edge between glossary entries, with the triggering words
   definitions.csv       every distinct definition linked from a paragraph, with a SHA-256 of its text
 
@@ -52,16 +53,17 @@ con = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
 links, defs = [], {}
 for cit, h in con.execute("select citation, html from paragraph"):
     h = h or ""
-    for m in LINK.finditer(h):
+    for occ, m in enumerate(LINK.finditer(h), 1):
         slug, title, defsub, cname, anchor = m.groups()
         before, after = words(h[:m.start()])[-WINDOW:], words(h[m.end():])[:WINDOW]
         anchor = " ".join(words(anchor))
         key = f"{defsub} {cname}"
         defs.setdefault(key, dict(definition_key=key, id_subtopic=defsub, slug=slug, sha256=sha(title), links=0))
         defs[key]["links"] += 1
-        links.append(dict(paragraph=asc_citation(cit), crawl_key=cit, slug=slug, anchor=anchor, definition_key=key, id_subtopic=defsub,
+        links.append(dict(paragraph=asc_citation(cit), crawl_key=cit, occurrence=occ, slug=slug, anchor=anchor, definition_key=key, id_subtopic=defsub,
                           snippet=" ".join(before + [f"[{anchor}]"] + after)))
-L = pd.DataFrame(links).drop_duplicates()
+L = pd.DataFrame(links)
+assert len(L) == sum(d["links"] for d in defs.values()) and not L.duplicated(["crawl_key", "occurrence"]).any()
 L.to_csv(OUT / "paragraph_links.csv", index=False)
 pd.DataFrame(defs.values()).sort_values("definition_key").to_csv(OUT / "definitions.csv", index=False)
 

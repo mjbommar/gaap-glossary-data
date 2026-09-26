@@ -27,9 +27,9 @@ Snapshot: the public viewer as retrieved between 22:50 UTC on September 9 and 04
 use the crawl key. On nine viewer pages the crawl recorded no citation, so 72 paragraphs (107 links, mostly in
 Subtopics 944-20, 958-605 and 958-810) carry the viewer's internal page and element ID instead.
 
-**Repeated links.** A paragraph can link the same term to the same definition more than once. `paragraph_links.csv`
-keeps each occurrence with a distinct snippet and drops exact repeats (8,277 rows, covering 8,070 distinct
-paragraph, term and definition combinations); `definitions.csv` counts every occurrence (8,476).
+**Link occurrences.** `paragraph_links.csv` has one row per link occurrence (8,476), numbered in order within each
+paragraph by `occurrence`; a paragraph can link the same term more than once. The `links` column of `definitions.csv`
+counts the same occurrences, so the two files reconcile.
 
 ## Files
 
@@ -37,11 +37,13 @@ paragraph, term and definition combinations); `definitions.csv` counts every occ
 |---|---|---|
 | `data/link_errors.csv` | 7 | Paragraphs whose glossary link leads to a definition that does not apply: the paragraph, the term, the definition linked, the definition that applies, and why. The note's lead finding. |
 | `data/subtopic_link_splits.csv` | 6 | Every Subtopic whose paragraphs link two different definitions of one term, found by comparing displayed text, with a verdict. Three are defects reported in the note; three are explained by scope, transition text or a status table. |
-| `data/verified_cycles.csv` | 36 | Every cycle in the glossary dependency graph, classified as a genuine mutual definition, a harmless synonym pointer, or a phrase-matching artifact, with severity and rationale. |
+| `data/verified_cycles.csv` | 36 | Every cycle in the glossary dependency graph, classified as a genuine mutual definition, a harmless synonym pointer, or a phrase-matching artifact, with severity and rationale. For genuine cycles, `glossary_anchor` names any entry content that is independent of the loop (5 of 11); an empty value means nothing in the glossary breaks it. |
 | `data/verified_nonauth_homonym.csv` | 62 | Verification of entries that rely on nonauthoritative sources (NONAUTH) and of names carrying several definitions (HOMONYM, HOMONYM_HIDDEN), with the subtopics that link each definition. |
-| `data/verified_dangling.csv` | 45 | Verification of every pointer to a paragraph or term that may not exist, with the resolved citation and a verdict (real defect or extraction artifact). |
-| `data/audit_defects.csv` | 532 | Every (entry, defect code) pair flagged by a detector or by either model: which flagged it, tier, severity, and the model's explanation. Screening output, not findings. |
-| `data/paragraph_links.csv` | 8,277 | The citation graph: every glossary link in a Codification paragraph, with the specific definition it targets (`definition_key`: the Subtopic and headword in the viewer's element ID) and a snippet with the linked words in brackets. |
+| `data/verified_dangling.csv` | 45 | Verification of every pointer to a paragraph or term that may not exist, with the resolved citation and a verdict: an extraction artifact, or a pointer whose target survives only as a superseded placeholder. |
+| `data/entry_manifest.csv` | 1,287 | Every glossary entry with each model's sound or unsound decision, the codes each model flagged (empty if none) and the codes the detectors flagged. Reproduces every count and kappa in `audit_stats.json`. |
+| `data/detector_flags.csv` | 271 | Every detector flag, one row per flag, with its cycle, target or source but without the matched Codification text. |
+| `data/audit_defects.csv` | 532 | Every (entry, defect code) pair flagged by at least one model, with each model's flag, whether a detector also flagged it, tier, severity, and the model's explanation. Detector-only flags are in `detector_flags.csv`. Screening output, not findings. |
+| `data/paragraph_links.csv` | 8,476 | The citation graph: every glossary link occurrence in a Codification paragraph, with the specific definition it targets (`definition_key`: the Subtopic and headword in the viewer's element ID) and a snippet with the linked words in brackets. |
 | `data/definitions.csv` | 1,145 | Every distinct definition that some paragraph links, with the Subtopic in its viewer ID, the number of links to it, and a SHA-256 fingerprint of its text. The ID Subtopic is not always where the definition originates: the viewer's "customer" links carry a 985-605 ID but display the Topic 606 definition. Compare definitions by fingerprint, not by ID. |
 | `data/definition_edges.csv` | 1,294 | The dependency graph: glossary entry `entry` uses glossary term `uses_term` in its definition, with a snippet showing the words that create the dependency (56 edges have no snippet because the term appears only in a variant form). |
 | `data/glossary_edges_multiword.csv` | 1,294 | The same dependency edges without snippets, as used by the detectors. |
@@ -52,7 +54,8 @@ paragraph, term and definition combinations); `definitions.csv` counts every occ
 ## Scripts
 
 `scripts/export_public_data.py` produced the audit and verification files from the private audit data, removing
-full-text columns. `scripts/build_link_graph.py` produced the citation-graph files from the private crawl. Both are
+full-text columns. `scripts/export_screening.py` produced the entry manifest and detector flags from the raw model
+outputs and detector files, and asserts that the manifest reproduces `audit_stats.json`. `scripts/build_link_graph.py` produced the citation-graph files from the private crawl. Both are
 included to document the method; their inputs are not distributed.
 
 ## How to read the counts
