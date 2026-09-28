@@ -1,7 +1,7 @@
 # FASB Master Glossary audit data
 
 Data for the note *Circular, Superseded, and Borrowed: An Audit of the Definitions in the FASB Master Glossary*
-by Michael J. Bommarito II (2026).
+by Jillian Bommarito and Michael J. Bommarito II (2026).
 
 The note audits all 1,287 entries of the Master Glossary of the FASB Accounting Standards Codification. Deterministic
 detectors and two independent language-model reviews (Claude Opus 5.5 and Claude Sonnet 5) screened every entry, and

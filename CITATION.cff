@@ -4,8 +4,12 @@ type: dataset
 title: "FASB Master Glossary audit data"
 authors:
   - family-names: "Bommarito"
+    given-names: "Jillian"
+    affiliation: "ALEA Institute; Department of Accounting and Information Systems, Eli Broad College of Business, Michigan State University"
+  - family-names: "Bommarito"
     given-names: "Michael J."
     name-suffix: "II"
+    affiliation: "ALEA Institute"
 license: CC-BY-4.0
 repository-code: "https://github.com/mjbommar/gaap-glossary-data"
 date-released: 2026-09-25
@@ -21,6 +25,8 @@ references:
   - type: article
     title: "Circular, Superseded, and Borrowed: An Audit of the Definitions in the FASB Master Glossary"
     authors:
+      - family-names: "Bommarito"
+        given-names: "Jillian"
       - family-names: "Bommarito"
         given-names: "Michael J."
         name-suffix: "II"
