@@ -47,9 +47,19 @@ counts the same occurrences, so the two files reconcile.
 | `data/definitions.csv` | 1,145 | Every distinct definition that some paragraph links, with the Subtopic in its viewer ID, the number of links to it, and a SHA-256 fingerprint of its text. The ID Subtopic is not always where the definition originates: the viewer's "customer" links carry a 985-605 ID but display the Topic 606 definition. Compare definitions by fingerprint, not by ID. |
 | `data/definition_edges.csv` | 1,294 | The dependency graph: glossary entry `entry` uses glossary term `uses_term` in its definition, with a snippet showing the words that create the dependency (56 edges have no snippet because the term appears only in a variant form). |
 | `data/glossary_edges_multiword.csv` | 1,294 | The same dependency edges without snippets, as used by the detectors. |
+| `data/fasb_corrections.csv` | 11 | Errors in Codification text that the FASB itself acknowledged in its Accounting Standards Updates: the paragraph, the subject, the FASB's own words, where the defective text entered and when, and the correcting Update. Years are counted from issue, not effective date. A selection drawn from technical-correction Updates, not a census. Source of the note's Table 2. |
+| `data/consequences_evidence.csv` | 22 | Every source behind the note's Section 4: FASB admissions, filings that reported numbers under text the FASB later corrected, federal rules and statute that rely on the Codification, SEC filings and staff letters that show the readings the glossary defects invite, and practitioner guides. Each row gives the document, date, EDGAR accession or legal citation, URL, locator, a short verbatim quote and what it shows. |
 | `data/audit_stats.json` | | Per-code counts for each model, both models, and Cohen's kappa between them. |
 | `data/detect_summary.json` | | Per-code counts from the deterministic detectors. |
 | `data/TAXONOMY.md` | | Definitions of the defect codes used in every file. |
+
+## Consequences evidence
+
+`consequences_evidence.csv` and `fasb_corrections.csv` support the note's section on what errors in the Codification's
+text cost. SEC filings and staff correspondence were found by full-text search of EDGAR (2001 to 2026) and read in
+full; the Accounting Standards Updates, federal rules and statute were read from the sources linked in each row. Every
+quote was checked against its source on September 28 or 29, 2026. No filing or staff letter attributes an error to the
+glossary: the `filing_trace` rows show the readings the glossary defects invite, not that a link caused an error.
 
 ## Scripts
 

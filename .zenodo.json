@@ -1,7 +1,7 @@
 {
   "upload_type": "dataset",
   "title": "FASB Master Glossary audit data",
-  "description": "<p>Data for the note <em>Circular, Superseded, and Borrowed: An Audit of the Definitions in the FASB Master Glossary</em>. The note audits all 1,287 entries of the Master Glossary of the FASB Accounting Standards Codification with deterministic detectors and two independent language-model reviews, then verifies every reported defect against primary sources. The dataset holds the complete screening record (every model decision for all 1,287 entries, which reproduces the reported agreement statistics, and every detector flag), the verification records, the glossary citation graph (every paragraph-to-definition link and every definition-to-definition dependency, each with a snippet of at most six words either side of the linked term), SHA-256 fingerprints of each linked definition, and a list of paragraphs whose glossary links lead to a definition that does not apply. It contains no full paragraph or definition of the Codification, whose text remains subject to the Financial Accounting Foundation's rights.</p>",
+  "description": "<p>Data for the note <em>Circular, Superseded, and Borrowed: An Audit of the Definitions in the FASB Master Glossary</em>. The note audits all 1,287 entries of the Master Glossary of the FASB Accounting Standards Codification with deterministic detectors and two independent language-model reviews, then verifies every reported defect against primary sources. The dataset holds the complete screening record (every model decision for all 1,287 entries, which reproduces the reported agreement statistics, and every detector flag), the verification records, the glossary citation graph (every paragraph-to-definition link and every definition-to-definition dependency, each with a snippet of at most six words either side of the linked term), SHA-256 fingerprints of each linked definition, and a list of paragraphs whose glossary links lead to a definition that does not apply. Version 1.1.0 adds the record of Codification errors the FASB itself acknowledged in its Updates and the sources (SEC filings and staff letters, federal rules and statute, practitioner guides) behind the note's section on what errors in the Codification's text cost, each with a short verbatim quote and locator. It contains no full paragraph or definition of the Codification, whose text remains subject to the Financial Accounting Foundation's rights.</p>",
   "creators": [
     {
       "name": "Bommarito, Jillian",
@@ -23,5 +23,5 @@
     "legal drafting",
     "GAAP"
   ],
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
